@@ -92,7 +92,8 @@ shinyServer(function(input, output) {
     curCorpus <- myCorpus()
     curDf <- dfm(curCorpus, ignoredFeatures = c("will", "png", "subtype", "time", "files", "heh", "yeah", "u06jmcyav", "u065393a4", "name", "type", "ts", "user", "text", "message", "https", "u064zh0cd", "false", "like", "jpg", "u0788p59d", stopwords("english")))
     topfeatures(curDf, 100)
-    plot(curDf, max.words = 150, colors = brewer.pal(6, "Dark2"), scale = c(8, .5))
+    customcolors <- c("#32c850","#1f2421","#216869","#9cc5a1","#dce1de")
+    plot(curDf, max.words = 150, colors = customcolors, scale = c(8, .5))
   })
 
 })
