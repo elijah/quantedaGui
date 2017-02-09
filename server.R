@@ -6,6 +6,7 @@
 library(shiny)
 library(quanteda)
 library(dplyr)
+library(RColorBrewer)
 
 getCorpus <- function(path){
   if(is.null(path)){
@@ -88,6 +89,6 @@ shinyServer(function(input, output) {
     curCorpus <- myCorpus()
     curDf <- dfm(curCorpus)
     plot(curDf, max.words = 100, colors = brewer.pal(6, "Dark2"), scale = c(8, .5))
-  })
+  }, options = list(searching = FALSE))
 
 })
