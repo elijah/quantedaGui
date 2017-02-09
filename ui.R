@@ -79,6 +79,17 @@ kwicPanel <- tabPanel("Keyword-in-context",
          )
 )
 
+cloudPanel <- tabPanel("Word Cloud",
+                sidebarLayout(
+                  sidebarPanel(
+                    p("word cloud output")
+                  ),
+                  mainPanel(
+                    plotOutput("cloudTable")
+                  )
+                )
+)
+
 shinyUI(fluidPage(
   # Application title
   titlePanel("Quanteda"),
@@ -87,7 +98,8 @@ shinyUI(fluidPage(
   tabsetPanel(
     uploadPanel,
     dfmPanel,
-    kwicPanel
+    kwicPanel,
+    cloudPanel
     )
   )
 )

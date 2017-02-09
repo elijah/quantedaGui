@@ -84,4 +84,10 @@ shinyServer(function(input, output) {
          case_insensitive = !(input$caseSensitive))
   }, options = list(searching = FALSE))
 
+  output$cloudTable <- renderPlot({
+    curCorpus <- myCorpus()
+    curDf <- dfm(curCorpus)
+    plot(curDf, max.words = 100, colors = brewer.pal(6, "Dark2"), scale = c(8, .5))
+  })
+
 })
