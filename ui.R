@@ -85,7 +85,7 @@ cloudPanel <- tabPanel("Word Cloud",
                     p("word cloud output")
                   ),
                   mainPanel(
-                    plotOutput("cloudTable")
+                    plotOutput("cloudTable", width = "100%")
                   )
                 )
 )
