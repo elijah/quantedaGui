@@ -4,12 +4,12 @@
 # http://shiny.rstudio.com
 #
 library(shiny)
-#library(quanteda)
+library(quanteda)
 library(dplyr)
 library(RColorBrewer)
 
-devtools::install_github("kbenoit/quanteda")
-library(quanteda)
+#devtools::install_github("kbenoit/quanteda")
+#library(quanteda)
 
 getCorpus <- function(path){
   if(is.null(path)){
