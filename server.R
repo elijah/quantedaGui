@@ -4,9 +4,12 @@
 # http://shiny.rstudio.com
 #
 library(shiny)
-library(quanteda)
+#library(quanteda)
 library(dplyr)
 library(RColorBrewer)
+
+devtools::install_github("kbenoit/quanteda")
+library(quanteda)
 
 getCorpus <- function(path){
   if(is.null(path)){
@@ -87,8 +90,9 @@ shinyServer(function(input, output) {
 
   output$cloudTable <- renderPlot({
     curCorpus <- myCorpus()
-    curDf <- dfm(curCorpus)
+    curDf <- dfm(curCorpus, ignoredFeatures = c("will", "png", "subtype", "time", "files", "heh", "yeah", "u06jmcyav", "u065393a4", "name", "type", "ts", "user", "text", "message", "https", "u064zh0cd", "false", "like", "jpg", "u0788p59d", stopwords("english")))
+    topfeatures(curDf, 20)
     plot(curDf, max.words = 100, colors = brewer.pal(6, "Dark2"), scale = c(8, .5))
-  }, options = list(searching = FALSE))
+  })
 
 })
